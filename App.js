@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StyleSheet } from "react-native";
 import { Calendar } from "./Calendar";
@@ -11,6 +11,17 @@ import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "rgb(233, 198, 250)",
+    primary: "rgb(55, 1, 80)",
+    text: "rgb(80, 1, 1)",
+    fontFamily: "Shafarik-Regular",
+  },
+};
+
 SplashScreen.preventAutoHideAsync();
 
 function RootStack() {
@@ -19,6 +30,7 @@ function RootStack() {
       initialRouteName="Home"
       screenOptions={{
         headerStyle: { backgroundColor: "aquamarine" },
+        backgroundColor: "pink",
       }}
     >
       <Stack.Screen
@@ -57,7 +69,7 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <RootStack />
     </NavigationContainer>
   );
@@ -66,7 +78,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#aaf",
     alignItems: "center",
     justifyContent: "center",
   },

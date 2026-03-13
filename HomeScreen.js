@@ -1,7 +1,8 @@
 import { Button } from "@react-navigation/elements";
 import { Link } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Text } from "@react-navigation/elements";
 
 export function HomeScreen() {
   return (
@@ -11,6 +12,7 @@ export function HomeScreen() {
       <Text style={styles.text}>Й̀ ѝ̀, Й́, ѝ́</Text>
       <Text style={styles.blanc}>Й̀ ѝ̀, Й́, ѝ́</Text>
       <Text style={styles.blanc}>Й̀ѝ̀, Й́, й</Text>
+
 
 
       <Button screen="Calendar">Календар</Button>
