@@ -1,18 +1,23 @@
-import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet } from "react-native";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect, useLayoutEffect } from "react";
+import { StyleSheet, useColorScheme } from "react-native";
 import { Calendar } from "./Calendar";
 import { HomeScreen } from "./HomeScreen";
 import { Dumi } from "./Screens/Dumi";
 import { UselessInfo } from "./UselessInfo";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 
 const MyTheme = {
   ...DefaultTheme,
+  dark: false,
   colors: {
     ...DefaultTheme.colors,
     background: "rgb(233, 198, 250)",
@@ -21,6 +26,20 @@ const MyTheme = {
     fontFamily: "Shafarik-Regular",
   },
 };
+
+const MyDarkTheme = {
+  ...DarkTheme,
+  dark: true,
+  colors: {
+    ...DarkTheme.colors,
+    background: "rgb(42, 1, 63)",
+    primary: "rgb(85, 93, 246)",
+    text: "rgb(251, 190, 190)",
+    fontFamily: "Shafarik-Regular",
+  },
+};
+
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -54,9 +73,20 @@ function RootStack() {
 }
 
 export default function App() {
+  const scheme = useColorScheme();
   const [loaded, error] = useFonts({
     "Shafarik-Regular": require("./assets/fonts/Shafarik-Regular.otf"),
   });
+
+  // useLayoutEffect(() => {
+  //   const colorScheme = theme.dark ? "dark" : "light";
+
+  //   if (Platform.OS === "web") {
+  //     document.documentElement.style.colorScheme = colorScheme;
+  //   } else {
+  //     Appearance.setColorScheme(colorScheme);
+  //   }
+  // }, [theme.dark]);
 
   useEffect(() => {
     if (loaded || error) {
@@ -69,7 +99,7 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer theme={MyTheme}>
+    <NavigationContainer theme={scheme === "dark" ? MyDarkTheme : MyTheme}>
       <RootStack />
     </NavigationContainer>
   );

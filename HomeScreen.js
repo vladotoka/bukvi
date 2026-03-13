@@ -1,10 +1,12 @@
 import { Button } from "@react-navigation/elements";
 import { Link } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, useColorScheme } from "react-native";
 import { Text } from "@react-navigation/elements";
 
 export function HomeScreen() {
+  const scheme = useColorScheme();
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>А́ а́ Ъ́ ъ́ О́ о́ У́ у́ е́ Е́ И́ и́ Ю́ ю́ Я́ я́</Text>
@@ -13,11 +15,10 @@ export function HomeScreen() {
       <Text style={styles.blanc}>Й̀ ѝ̀, Й́, ѝ́</Text>
       <Text style={styles.blanc}>Й̀ѝ̀, Й́, й</Text>
 
-
-
       <Button screen="Calendar">Календар</Button>
       <Button screen="UselessInfo">Знание</Button>
       <Button screen="Dumi">Думи</Button>
+      <Text>useColorScheme(): {scheme}</Text>
       {/* Linking bg.calendar */}
     </View>
   );
