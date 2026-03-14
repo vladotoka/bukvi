@@ -12,6 +12,7 @@ import { Calendar } from "./Calendar";
 import { HomeScreen } from "./HomeScreen";
 import { Dumi } from "./Screens/Dumi";
 import { UselessInfo } from "./UselessInfo";
+import { Brew } from "./Screens/Brew";
 
 const Stack = createNativeStackNavigator();
 
@@ -38,8 +39,6 @@ const MyDarkTheme = {
     fontFamily: "Shafarik-Regular",
   },
 };
-
-
 
 SplashScreen.preventAutoHideAsync();
 
@@ -68,6 +67,12 @@ function RootStack() {
         options={{ title: "Полезно знание" }}
       />
       <Stack.Screen name="Dumi" component={Dumi} options={{ title: "Думи" }} />
+            <Stack.Screen
+        name="Brew"
+        component={Brew}
+        options={{ title: "Brew знание" }}
+      />
+
     </Stack.Navigator>
   );
 }

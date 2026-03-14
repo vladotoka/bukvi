@@ -18,6 +18,7 @@ export function HomeScreen() {
       <Button screen="Calendar">Календар</Button>
       <Button screen="UselessInfo">Знание</Button>
       <Button screen="Dumi">Думи</Button>
+      <Button screen="Brew">Брю</Button>
       <Text>useColorScheme(): {scheme}</Text>
       {/* Linking bg.calendar */}
     </View>
