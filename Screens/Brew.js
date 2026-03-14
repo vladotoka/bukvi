@@ -1,6 +1,7 @@
  import React from 'react';
  import { View, Text } from 'react-native';
  import { OpenURLButton } from '../Components/OpenURLButton';
+ //import APIkey from Async storage
  
  
  export function Brew() {
@@ -12,3 +13,4 @@
    );
  }
  
+ // get request https://breww.com/api/
